@@ -146,6 +146,8 @@ now in SearchAutoComplete return we check if showDropdown is true so show the su
     </div>
   );
 }
+
+
 now to choose the value from filtered users let’s create handleClick method for that
   function handleClick(event){
     // console.log(event.target.innerText);
@@ -153,34 +155,6 @@ now to choose the value from filtered users let’s create handleClick method fo
     setSearchParam(event.target.innerText);
     setFilteredUsers([]);
   }
-
-  async function fetchListOfUsers() {
-    try {
-      setLoading(true);
-      const response = await fetch("https://dummyjson.com/users");
-      const data = await response.json();
-      // console.log(data);
-
-      if (data && data.users && data.users.length) {
-        setUsers(data.users.map((userItem) => userItem.firstName.toLowerCase()));
-        setLoading(false);
-        setError(null);
-      } else {
-        throw new Error("No users found");
-      }
-    } catch (error) {
-      setLoading(false);
-      console.log(error);
-      setError(error.message);
-    }
-  }
-
-  useEffect(() => {
-    fetchListOfUsers();
-  }, []);
-
-  console.log(users, filteredUsers);
-
 
   return (
     <div className="search-autocomplete-container">
