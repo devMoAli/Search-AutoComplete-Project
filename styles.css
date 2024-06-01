@@ -1,0 +1,50 @@
+.search-autocomplete-container {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+/* Style the input field */
+.search-autocomplete-container input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Suggestions dropdown container */
+.search-autocomplete-container ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  max-height: 200px; /* Optional: Limit height */
+  overflow-y: auto; /* Optional: Scroll if too many items */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+/* Individual suggestion items */
+.search-autocomplete-container li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Highlight suggestion on hover */
+.search-autocomplete-container li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Style for no suggestions found */
+.no-suggestions {
+  padding: 10px;
+  color: #999;
+  text-align: center;
+}
