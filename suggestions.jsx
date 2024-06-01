@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 
-export default function Suggestions({ data }) {
+export default function Suggestions({ data, handleClick}) {
   if (!data || data.length === 0) {
     return (
       <ul>
@@ -13,7 +13,7 @@ export default function Suggestions({ data }) {
   return (
     <ul>
       {data.map((item, index) => (
-        <li key={index}>{item}</li>
+        <li onClick={handleClick} key={index}>{item}</li>
       ))}
     </ul>
   );

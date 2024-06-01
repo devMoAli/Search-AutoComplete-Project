@@ -25,7 +25,12 @@ export default function SeachAutoComplete() {
       setShowDropdown(false);
     }
   }
-
+  function handleClick(event) {
+    // console.log(event.target.innerText);
+    setShowDropdown(false);
+    setSearchParam(event.target.innerText);
+    setFilteredUsers([]);
+  }
   async function fetchListOfUsers() {
     try {
       setLoading(true);
@@ -34,7 +39,9 @@ export default function SeachAutoComplete() {
       // console.log(data);
 
       if (data && data.users && data.users.length) {
-        setUsers(data.users.map((userItem) => userItem.firstName.toLowerCase()));
+        setUsers(
+          data.users.map((userItem) => userItem.firstName.toLowerCase())
+        );
         setLoading(false);
         setError(null);
       } else {
@@ -66,7 +73,9 @@ export default function SeachAutoComplete() {
         />
       )}
 
-      {showDropdown && <Suggestions data={filteredUsers} />}
+      {showDropdown && (
+        <Suggestions handleClick={handleClick} data={filteredUsers} />
+      )}
       {error && <p>{error}</p>}
     </div>
   );
